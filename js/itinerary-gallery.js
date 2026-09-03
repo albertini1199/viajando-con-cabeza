@@ -2,6 +2,55 @@ document.addEventListener('DOMContentLoaded',()=>{
  const galleries=[...document.querySelectorAll('.day-section .photo-gallery')];
  const columns=[...document.querySelectorAll('.day-column')];
 
+ /* Fotografías de ejemplo: se usan si todavía no existen las copias locales del repositorio. */
+ const fallbackImages={
+  'plaza-del-popolo-1.jpg':'https://commons.wikimedia.org/wiki/Special:FilePath/Piazza_del_Popolo%2C_Roma%2C_Italy_%28Unsplash%29.jpg?width=1400',
+  'plaza-del-popolo-2.jpg':'https://commons.wikimedia.org/wiki/Special:FilePath/Piazza_del_Popolo%2C_Roma%2C_Italy_%28Unsplash%29.jpg?width=1400',
+  'terraza-del-pincio.jpg':'https://commons.wikimedia.org/wiki/Special:FilePath/Piazza_del_Popolo%2C_Roma%2C_Italy_%28Unsplash%29.jpg?width=1400',
+  'basilica-santa-maria-del-popolo.jpg':'https://images.unsplash.com/photo-1739357565156-e90fbaf10269?auto=format&fit=crop&w=1400&q=82',
+  'castillo-sant-angelo-1.jpg':'https://images.unsplash.com/photo-1557835814-7c4f6ee2265c?auto=format&fit=crop&w=1400&q=82',
+  'ciudad-del-vaticano-1.jpg':'https://images.unsplash.com/photo-1724225978838-2f9da44ac1ce?auto=format&fit=crop&w=1400&q=82',
+  'museos-vaticanos-1.jpg':'https://images.unsplash.com/photo-1586777550739-abeb68c7200b?auto=format&fit=crop&w=1400&q=82',
+  'museos-vaticanos-2.jpg':'https://images.unsplash.com/photo-1586777550739-abeb68c7200b?auto=format&fit=crop&w=1400&q=82',
+  'museos-vaticanos-3.jpg':'https://images.unsplash.com/photo-1586777550739-abeb68c7200b?auto=format&fit=crop&w=1400&q=82',
+  'castillo-sant-angelo-2.jpg':'https://images.unsplash.com/photo-1655416098348-5b7dfddfc7dd?auto=format&fit=crop&w=1400&q=82',
+  'coliseo-1.jpg':'https://commons.wikimedia.org/wiki/Special:FilePath/Rome_Coliseum_%28Unsplash%29.jpg?width=1400',
+  'coliseo-2.jpg':'https://commons.wikimedia.org/wiki/Special:FilePath/Rome_colesium_%28Unsplash%29.jpg?width=1400',
+  'arco-de-constantino.jpg':'https://commons.wikimedia.org/wiki/Special:FilePath/Rome_Coliseum_%28Unsplash%29.jpg?width=1400',
+  'foro-romano-1.jpg':'https://images.unsplash.com/photo-1709354637314-d473b35e77eb?auto=format&fit=crop&w=1400&q=82',
+  'foro-romano-2.jpg':'https://images.unsplash.com/photo-1734022619182-838f17d4bb55?auto=format&fit=crop&w=1400&q=82',
+  'bocca-della-verita.jpg':'https://images.unsplash.com/photo-1709354637314-d473b35e77eb?auto=format&fit=crop&w=1400&q=82',
+  'teatro-de-marcelo.jpg':'https://images.unsplash.com/photo-1709354637314-d473b35e77eb?auto=format&fit=crop&w=1400&q=82',
+  'monumento-victorio-manuel-ii-1.jpg':'https://images.unsplash.com/photo-1709354637314-d473b35e77eb?auto=format&fit=crop&w=1400&q=82',
+  'monumento-victorio-manuel-ii-2.jpg':'https://images.unsplash.com/photo-1709354637314-d473b35e77eb?auto=format&fit=crop&w=1400&q=82',
+  'trastevere.jpg':'https://images.unsplash.com/photo-1709354637314-d473b35e77eb?auto=format&fit=crop&w=1400&q=82',
+  'foro-traiano-1.jpg':'https://images.unsplash.com/photo-1709354637314-d473b35e77eb?auto=format&fit=crop&w=1400&q=82',
+  'foro-traiano-2.jpg':'https://images.unsplash.com/photo-1734022619182-838f17d4bb55?auto=format&fit=crop&w=1400&q=82',
+  'fontana-di-trevi.jpg':'https://images.unsplash.com/photo-1651212989581-dd548973b55e?auto=format&fit=crop&w=1400&q=82',
+  'piazza-navona.jpg':'https://storage.googleapis.com/mytour-prod/blog/1657806986350_navona-jpg.jpeg',
+  'vaticano.jpg':'https://images.unsplash.com/photo-1739357565156-e90fbaf10269?auto=format&fit=crop&w=1400&q=82',
+  'plaza-de-espana-1.jpg':'https://images.unsplash.com/photo-1663143146856-683650ffee76?auto=format&fit=crop&w=1400&q=82',
+  'fontana-di-trevi-2.jpg':'https://images.unsplash.com/photo-1651212989581-dd548973b55e?auto=format&fit=crop&w=1400&q=82',
+  'plaza-de-espana-2.jpg':'https://images.unsplash.com/photo-1663143146856-683650ffee76?auto=format&fit=crop&w=1400&q=82',
+  'vaticano-2.jpg':'https://images.unsplash.com/photo-1724225978838-2f9da44ac1ce?auto=format&fit=crop&w=1400&q=82',
+  'panteon.jpg':'https://images.unsplash.com/photo-1693824113672-c288819f3724?auto=format&fit=crop&w=1400&q=82'
+ };
+
+ document.querySelectorAll('.photo-frame img').forEach(img=>{
+  const file=(img.getAttribute('src')||'').split('/').pop();
+  const fallback=fallbackImages[file];
+  if(!fallback)return;
+  img.addEventListener('error',()=>{
+   if(img.dataset.fallbackApplied)return;
+   img.dataset.fallbackApplied='1';
+   img.src=fallback;
+  },{once:true});
+  if(img.complete && img.naturalWidth===0){
+   img.dataset.fallbackApplied='1';
+   img.src=fallback;
+  }
+ });
+
  /* Lugares: formato limpio, sin cajas ni líneas, con flecha circular */
  columns.forEach(col=>{
   col.querySelectorAll('li').forEach(li=>{
