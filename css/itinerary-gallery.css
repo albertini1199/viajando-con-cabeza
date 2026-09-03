@@ -1,12 +1,18 @@
-/* Galería de itinerarios: rejilla compacta + visor tipo hotel/Booking */
-.photo-gallery{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:2px;margin-top:34px}
-.photo-frame{position:relative;aspect-ratio:3/2;overflow:hidden;border:0;border-radius:0;background:#eee;box-shadow:none;cursor:pointer}
+/* Galería de itinerarios: mosaico tipo Booking + visor completo */
+.day-column{text-align:center}
+.day-column h3{display:block;text-align:center}
+.itinerary-place-link{text-align:left}
+.photo-gallery{display:grid;grid-template-columns:2fr 1fr 1fr;grid-template-rows:repeat(2,minmax(150px,190px));gap:3px;margin-top:34px;overflow:hidden;border-radius:10px}
+.photo-frame{position:relative;min-width:0;min-height:0;aspect-ratio:auto;overflow:hidden;border:0;border-radius:0;background:#eee;box-shadow:none;cursor:pointer}
+.photo-frame:first-child{grid-row:1 / span 2}
+.photo-frame:nth-child(n+6){display:none}
 .photo-frame img{width:100%;height:100%;object-fit:cover;transition:transform .35s ease,filter .25s ease}
-.photo-frame:hover img{transform:scale(1.035);filter:brightness(.92)}
+.photo-frame:hover img{transform:scale(1.035);filter:brightness(.88)}
 .photo-frame:focus-visible{outline:3px solid var(--accent,#e86f51);outline-offset:-3px}
-.photo-frame::after{content:"Ver fotos";position:absolute;inset:auto 50% 50%;transform:translate(-50%,50%);padding:8px 13px;border-radius:999px;background:rgba(0,0,0,.72);color:#fff;font-size:12px;font-weight:700;letter-spacing:.2px;opacity:0;transition:opacity .2s ease;pointer-events:none;white-space:nowrap}
+.photo-frame::after{content:"";position:absolute;inset:0;background:rgba(0,0,0,.08);opacity:0;transition:opacity .2s ease;pointer-events:none}
 .photo-frame:hover::after{opacity:1}
-.photo-caption{position:absolute;z-index:3;left:0;right:0;bottom:0;padding:38px 14px 11px;color:#fff;font-size:11px;font-weight:800;text-transform:uppercase;background:linear-gradient(transparent,rgba(0,0,0,.72));pointer-events:none}
+.photo-frame:nth-child(5)::before{content:"Ver todas las fotos";position:absolute;z-index:4;right:12px;bottom:12px;padding:9px 13px;border-radius:7px;background:rgba(0,0,0,.72);color:#fff;font-size:12px;font-weight:700;opacity:1;pointer-events:none}
+.photo-caption{display:none}
 
 .lightbox{position:fixed;inset:0;z-index:1000;display:none;grid-template-rows:1fr auto auto;align-items:center;justify-items:center;padding:24px 30px 18px;background:rgba(12,12,12,.96)}
 .lightbox.is-open{display:grid}
@@ -17,5 +23,6 @@
 .lightbox-thumbs{width:min(92vw,1200px);height:76px;display:flex;gap:5px;overflow-x:auto;overflow-y:hidden;padding:4px 2px 8px;scrollbar-width:thin;scroll-behavior:smooth}
 .lightbox-thumb{flex:0 0 92px;height:60px;padding:0;border:2px solid transparent;border-radius:3px;overflow:hidden;background:#222;cursor:pointer;opacity:.72;transition:opacity .2s,border-color .2s,transform .2s}.lightbox-thumb:hover{opacity:1}.lightbox-thumb.is-active{opacity:1;border-color:#fff;transform:translateY(-2px)}.lightbox-thumb img{width:100%;height:100%;object-fit:cover}
 .lightbox-counter{color:rgba(255,255,255,.8);font-size:12px;margin-top:2px}
-@media(max-width:900px){.photo-gallery{grid-template-columns:repeat(2,minmax(0,1fr));gap:2px}.lightbox{padding:18px 16px 12px}.lightbox-main{height:min(68vh,650px)}.lightbox-thumbs{height:68px}.lightbox-thumb{flex-basis:82px;height:54px}}
-@media(max-width:430px){.photo-gallery{grid-template-columns:1fr;gap:2px}.lightbox-prev{left:8px}.lightbox-next{right:8px}.lightbox-close{top:8px;right:8px}.lightbox-main{width:94vw;height:62vh}.lightbox-thumb{flex-basis:72px;height:48px}}
+@media(max-width:900px){.photo-gallery{grid-template-columns:2fr 1fr;grid-template-rows:repeat(2,160px);gap:3px}.photo-frame:first-child{grid-row:1 / span 2}.lightbox{padding:18px 16px 12px}.lightbox-main{height:min(68vh,650px)}.lightbox-thumbs{height:68px}.lightbox-thumb{flex-basis:82px;height:54px}}
+@media(max-width:600px){.photo-gallery{grid-template-columns:1fr 1fr;grid-template-rows:repeat(3,130px)}.photo-frame:first-child{grid-row:1 / span 2;grid-column:1}.photo-frame:nth-child(2){grid-column:2;grid-row:1}.photo-frame:nth-child(3){grid-column:2;grid-row:2}.photo-frame:nth-child(4){grid-column:1;grid-row:3}.photo-frame:nth-child(5){grid-column:2;grid-row:3}}
+@media(max-width:430px){.photo-gallery{grid-template-columns:1fr;grid-template-rows:repeat(5,180px)}.photo-frame:first-child,.photo-frame:nth-child(2),.photo-frame:nth-child(3),.photo-frame:nth-child(4),.photo-frame:nth-child(5){grid-column:auto;grid-row:auto}.lightbox-prev{left:8px}.lightbox-next{right:8px}.lightbox-close{top:8px;right:8px}.lightbox-main{width:94vw;height:62vh}.lightbox-thumb{flex-basis:72px;height:48px}}
