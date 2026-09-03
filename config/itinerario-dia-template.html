@@ -1,0 +1,60 @@
+<!--
+PLANTILLA REUTILIZABLE · ITINERARIO DÍA A DÍA
+
+Estructura obligatoria para cada día:
+1. day-kicker + h2: título del día
+2. itinerary-map: Google Maps del recorrido
+3. day-description: descripción narrativa
+4. day-columns: mañana / tarde / noche
+5. photo-gallery: galería fotográfica
+
+Para crear un itinerario de 3, 4, 5 días o más, duplica el bloque <section class="day-section"> por cada día y sustituye el contenido.
+Los estilos viven en /css/styles.css.
+-->
+<section class="day-section">
+  <span class="day-kicker">Día X</span>
+  <h2>Título descriptivo del día</h2>
+
+  <div class="itinerary-map">
+    <iframe src="URL_GOOGLE_MAPS_EMBED" title="Mapa del itinerario del día X" loading="lazy" allowfullscreen></iframe>
+  </div>
+
+  <div class="day-description">
+    <p>Descripción narrativa del recorrido, experiencias y recomendaciones del día.</p>
+    <p>Segundo párrafo con información útil sobre las visitas y el recorrido.</p>
+  </div>
+
+  <div class="day-columns">
+    <div class="day-column">
+      <h3>Por la mañana</h3>
+      <ul>
+        <li>Lugar o actividad</li>
+        <li>Lugar o actividad</li>
+        <li>Lugar o actividad</li>
+      </ul>
+    </div>
+    <div class="day-column">
+      <h3>Por la tarde</h3>
+      <ul>
+        <li>Lugar o actividad</li>
+        <li>Lugar o actividad</li>
+        <li>Lugar o actividad</li>
+      </ul>
+    </div>
+    <div class="day-column">
+      <h3>Por la noche</h3>
+      <ul>
+        <li>Lugar o actividad</li>
+        <li>Lugar o actividad</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="photo-gallery">
+    <figure class="photo-frame">
+      <img src="URL_FOTO" alt="Descripción de la fotografía" loading="lazy">
+      <figcaption class="photo-caption">Descripción</figcaption>
+    </figure>
+    <!-- Repetir hasta completar aproximadamente 10–15 fotografías -->
+  </div>
+</section>
