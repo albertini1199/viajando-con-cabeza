@@ -1,0 +1,21 @@
+/* Ajustes visuales compartidos para las páginas principales */
+.page-header{height:auto;min-height:88px;position:sticky;top:0;z-index:100;background:rgba(255,255,255,.97);backdrop-filter:blur(8px)}
+.page-nav{min-height:88px;gap:24px}
+.page-logo{display:flex;align-items:center;flex:0 0 auto}
+.page-logo img{width:168px;height:68px;object-fit:contain;object-position:left center}
+.page-menu{align-items:center;letter-spacing:.35px}
+.page-menu a{position:relative;padding:33px 0 30px}
+.page-menu a.active,.page-menu a:hover{color:var(--coral)}
+.page-menu a.active::after{content:"";position:absolute;left:0;right:0;bottom:20px;height:2px;background:var(--coral);border-radius:2px}
+.page-social{display:flex;gap:14px;align-items:center}
+.page-social a{font-size:18px;line-height:1}
+.page-intro{padding-top:78px}
+.page-intro h1{font-size:clamp(54px,7vw,92px);font-weight:900;letter-spacing:-4px}
+.page-intro p{font-family:Georgia,serif;font-size:22px;color:#e1887b}
+.destino-card,.plan-card,.itinerario-card,.contact-option,.contact-form,.stat{box-shadow:0 8px 25px rgba(30,30,30,.035)}
+.contact-layout{align-items:start}
+.contact-form textarea{min-height:170px}
+.about-main{grid-template-columns:.95fr 1.35fr}
+.about-photo{height:510px}
+@media(max-width:900px){.page-nav{flex-wrap:wrap;padding:10px 0}.page-menu{order:3;width:100%;justify-content:center}.page-menu a{padding:8px 0 12px}.page-menu a.active::after{bottom:3px}.page-logo img{width:145px;height:58px}}
+@media(max-width:550px){.page-header{position:relative}.page-nav{justify-content:center}.page-logo{width:100%;justify-content:center}.page-logo img{width:150px}.page-menu{gap:14px}.page-menu a{font-size:9px}.page-intro .plane{font-size:42px;opacity:.35}.page-intro h1{letter-spacing:-2px}.about-photo{height:360px}}
