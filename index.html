@@ -5,19 +5,17 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Viajando con Cabeza | Viajes reales, rutas inteligentes</title>
   <meta name="description" content="Viajes reales, itinerarios día a día, presupuestos honestos y consejos para viajar mejor.">
-  <meta name="robots" content="index, follow">
-  <meta name="author" content="Viajando con Cabeza">
   <link rel="canonical" href="https://viajandoconcabeza.com/">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800&family=Oswald:wght@500;600;700&family=Caveat:wght@500;600&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@500;600;700&family=DM+Sans:wght@400;500;600;700;800&family=Oswald:wght@500;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="css/styles.css">
 </head>
 <body>
 <header class="site-header">
-  <div class="nav">
-    <a href="index.html" class="brand" aria-label="Viajando con Cabeza - Inicio">
-      <img class="brand-logo" src="https://viajandoconcabeza.com/wp-content/uploads/2024/12/VIAJANDO_CON_CABEZA_4-removebg-preview-300x300.png" alt="Viajando con Cabeza">
+  <div class="nav shell">
+    <a class="brand" href="index.html" aria-label="Viajando con Cabeza - Inicio">
+      <img src="https://viajandoconcabeza.com/wp-content/uploads/2024/12/VIAJANDO_CON_CABEZA_4-removebg-preview-300x300.png" alt="Viajando con Cabeza">
     </a>
     <nav class="menu" aria-label="Navegación principal">
       <a class="active" href="index.html">INICIO</a>
@@ -27,109 +25,138 @@
       <a href="nosotros/index.html">NOSOTROS</a>
       <a href="contacto/index.html">CONTACTO</a>
     </nav>
-    <div class="social-top" aria-label="Redes sociales">
-      <a href="#" aria-label="Instagram">◎</a>
-      <a href="#" aria-label="TikTok">♪</a>
-      <a href="#" aria-label="YouTube">▶</a>
+    <div class="social-top">
+      <a href="#" aria-label="Instagram">IG</a>
+      <a href="#" aria-label="TikTok">TT</a>
+      <a href="#" aria-label="YouTube">YT</a>
     </div>
   </div>
 </header>
 
 <main>
   <section class="hero-home">
-    <div class="hero-overlay"></div>
-    <div class="hero-content shell">
+    <div class="hero-shade"></div>
+    <div class="shell hero-content">
       <p class="script hero-script">Viaja más. Planifica mejor. Disfruta más. ♡</p>
       <h1>VIAJANDO<br><span>CON CABEZA</span></h1>
-      <p class="hero-text">Rutas reales, presupuestos honestos y todos nuestros trucos para que viajes con cabeza y disfrutes el doble.</p>
+      <p class="hero-text">Rutas reales, presupuestos honestos y todos nuestros trucos para que viajes con cabeza <strong>y disfrutes el doble.</strong></p>
       <div class="hero-buttons">
-        <a class="btn btn-primary" href="destinos/index.html">EXPLORAR DESTINOS ◉</a>
-        <a class="btn btn-light" href="itinerarios/index.html">VER ITINERARIOS ▣</a>
+        <a class="btn btn-coral" href="destinos/index.html">EXPLORAR DESTINOS <span>◉</span></a>
+        <a class="btn btn-white" href="itinerarios/index.html">VER ITINERARIOS <span>▣</span></a>
       </div>
     </div>
   </section>
 
   <section class="pillars shell" aria-label="Lo que encontrarás">
-    <div class="pillar"><div class="pillar-icon">⌁</div><div><strong>VIAJES REALES</strong><span>Experiencias propias</span></div></div>
-    <div class="pillar"><div class="pillar-icon">♙</div><div><strong>PRESUPUESTOS REALES</strong><span>Cuánto cuesta realmente</span></div></div>
-    <div class="pillar"><div class="pillar-icon">※</div><div><strong>RUTAS OPTIMIZADAS</strong><span>Itinerarios día a día</span></div></div>
-    <div class="pillar"><div class="pillar-icon">♡</div><div><strong>CONSEJOS PRÁCTICOS</strong><span>Para viajar mejor</span></div></div>
+    <article class="pillar">
+      <div class="round-icon"><svg viewBox="0 0 24 24"><path d="M12 21s-7-4.35-7-10a4 4 0 0 1 7-2.65A4 4 0 0 1 19 11c0 5.65-7 10-7 10Z"/><path d="m8.5 12.5 2 2 5-5"/></svg></div>
+      <div><strong>VIAJES REALES</strong><span>Experiencias propias</span></div>
+    </article>
+    <article class="pillar">
+      <div class="round-icon"><svg viewBox="0 0 24 24"><circle cx="12" cy="8" r="4"/><path d="M5 21a7 7 0 0 1 14 0"/></svg></div>
+      <div><strong>PRESUPUESTOS REALES</strong><span>Cuánto cuesta realmente</span></div>
+    </article>
+    <article class="pillar">
+      <div class="round-icon"><svg viewBox="0 0 24 24"><circle cx="5" cy="5" r="2"/><circle cx="19" cy="5" r="2"/><circle cx="5" cy="19" r="2"/><circle cx="19" cy="19" r="2"/><path d="M7 6.5 17 17.5M17 6.5 7 17.5"/></svg></div>
+      <div><strong>RUTAS OPTIMIZADAS</strong><span>Itinerarios día a día</span></div>
+    </article>
+    <article class="pillar">
+      <div class="round-icon"><svg viewBox="0 0 24 24"><path d="M21 15a4 4 0 0 1-4 4H9l-5 3v-7a7 7 0 1 1 17 0Z"/></svg></div>
+      <div><strong>CONSEJOS PRÁCTICOS</strong><span>Para viajar mejor</span></div>
+    </article>
   </section>
 
-  <section class="section latest-trips shell">
-    <div class="trips-layout">
-      <div class="trips-title">
-        <p class="script">Nuestros</p>
-        <h2>ÚLTIMOS<br>VIAJES</h2>
-        <div class="paper-plane">⌁</div>
-      </div>
+  <section class="latest shell">
+    <div class="latest-side">
+      <p class="script">Nuestros</p>
+      <h2>ÚLTIMOS<br>VIAJES</h2>
+      <div class="plane-doodle">✈︎</div>
+    </div>
+    <div class="latest-main">
       <div class="trip-grid">
         <a class="trip-card" href="destinos/italia/roma/index.html">
-          <img src="https://viajandoconcabeza.com/wp-content/uploads/2024/10/IMG_7638-755x1024.jpeg" alt="Roma, Italia">
-          <span class="heart">♡</span><div class="trip-gradient"></div>
-          <div class="trip-info"><h3>ROMA</h3><span>Italia</span><div class="trip-meta"><span>3 días</span><span>2 personas</span><strong>€1.247</strong></div></div>
+          <img src="https://images.unsplash.com/photo-1552832230-c0197dd311b5?auto=format&fit=crop&w=900&q=85" alt="Roma">
+          <span class="heart">♡</span><div class="trip-overlay"></div>
+          <div class="trip-copy"><h3>ROMA</h3><p>Italia</p><div><span>3 días</span><span>2 personas</span><b>€1.247</b></div></div>
         </a>
         <a class="trip-card" href="destinos/indonesia/index.html">
-          <img src="https://viajandoconcabeza.com/wp-content/uploads/2024/10/IMG_2242_VSCO-1-768x1024.jpeg" alt="Bali, Indonesia">
-          <span class="heart">♡</span><div class="trip-gradient"></div>
-          <div class="trip-info"><h3>BALI</h3><span>Indonesia</span><div class="trip-meta"><span>12 días</span><span>2 personas</span><strong>€2.950</strong></div></div>
+          <img src="https://images.unsplash.com/photo-1537996194471-e657df975ab4?auto=format&fit=crop&w=900&q=85" alt="Bali">
+          <span class="heart">♡</span><div class="trip-overlay"></div>
+          <div class="trip-copy"><h3>BALI</h3><p>Indonesia</p><div><span>12 días</span><span>2 personas</span><b>€2.950</b></div></div>
         </a>
         <a class="trip-card" href="#">
-          <img src="https://viajandoconcabeza.com/wp-content/uploads/2024/10/DSC05824_VSCO-edited-768x1024.jpeg" alt="Suecia">
-          <span class="heart">♡</span><div class="trip-gradient"></div>
-          <div class="trip-info"><h3>SUECIA</h3><span>14 días</span><div class="trip-meta"><span>2 personas</span><strong>€2.120</strong></div></div>
+          <img src="https://images.unsplash.com/photo-1509356843151-3e7d96241e11?auto=format&fit=crop&w=900&q=85" alt="Suecia">
+          <span class="heart">♡</span><div class="trip-overlay"></div>
+          <div class="trip-copy"><h3>SUECIA</h3><p>Suecia</p><div><span>14 días</span><span>2 personas</span><b>€2.120</b></div></div>
         </a>
         <a class="trip-card" href="destinos/francia/index.html">
-          <img src="https://viajandoconcabeza.com/wp-content/uploads/2024/10/ABFCAC9F-3713-4344-91D8-BE285F6C4D97-768x1024.jpeg" alt="París, Francia">
-          <span class="heart">♡</span><div class="trip-gradient"></div>
-          <div class="trip-info"><h3>PARÍS</h3><span>Francia</span><div class="trip-meta"><span>4 días</span><span>2 personas</span><strong>€980</strong></div></div>
+          <img src="https://images.unsplash.com/photo-1502602898657-3e91760cbb34?auto=format&fit=crop&w=900&q=85" alt="París">
+          <span class="heart">♡</span><div class="trip-overlay"></div>
+          <div class="trip-copy"><h3>PARÍS</h3><p>Francia</p><div><span>4 días</span><span>2 personas</span><b>€980</b></div></div>
         </a>
       </div>
+      <div class="center"><a class="btn btn-dark" href="destinos/index.html">VER TODOS NUESTROS VIAJES →</a></div>
     </div>
-    <div class="center-button"><a class="btn btn-dark" href="destinos/index.html">VER TODOS NUESTROS VIAJES →</a></div>
   </section>
 
-  <section class="search-section shell">
-    <div class="search-title"><h2>¿QUÉ ESTÁS BUSCANDO?</h2></div>
+  <section class="finder shell">
+    <h2>¿QUÉ ESTÁS BUSCANDO?</h2>
+    <div class="underline"></div>
     <div class="category-grid">
-      <a href="destinos/index.html" class="category-card category-peach"><div class="category-icon">◎</div><h3>DESTINOS</h3><p>Explora lugares increíbles</p></a>
-      <a href="itinerarios/index.html" class="category-card category-green"><div class="category-icon">▦</div><h3>ITINERARIOS</h3><p>Rutas día a día listas para ti</p></a>
-      <a href="planifica/index.html" class="category-card category-yellow"><div class="category-icon">€</div><h3>PRESUPUESTOS</h3><p>Cuánto cuesta realmente viajar</p></a>
-      <a href="nosotros/index.html" class="category-card category-pink"><div class="category-icon">♡</div><h3>VIAJES EN PAREJA</h3><p>Consejos y planes para dos</p></a>
+      <a class="category peach" href="destinos/index.html"><div class="category-icon">◎</div><h3>DESTINOS</h3><p>Explora lugares<br>increíbles</p></a>
+      <a class="category mint" href="itinerarios/index.html"><div class="category-icon">▦</div><h3>ITINERARIOS</h3><p>Rutas día a día<br>listas para ti</p></a>
+      <a class="category sand" href="planifica/index.html"><div class="category-icon">€</div><h3>PRESUPUESTOS</h3><p>Cuánto cuesta<br>realmente viajar</p></a>
+      <a class="category lilac" href="nosotros/index.html"><div class="category-icon">♡</div><h3>VIAJES EN PAREJA</h3><p>Consejos y planes<br>para dos</p></a>
     </div>
   </section>
 
-  <section class="instagram-section">
-    <div class="shell instagram-wrap">
-      <div class="instagram-text"><p class="script">Síguenos en</p><h2>INSTAGRAM</h2><p>Fotos, vídeos y momentos reales de cada viaje ✈</p><a href="#" class="btn btn-dark">◎ VER EN INSTAGRAM</a></div>
+  <section class="instagram-band">
+    <div class="shell instagram-layout">
+      <div class="instagram-copy"><p class="script">Síguenos en</p><h2>INSTAGRAM</h2><p>Fotos, vídeos y momentos reales<br>de cada viaje ✈</p><a class="btn btn-dark" href="#">◎ VER EN INSTAGRAM</a></div>
       <div class="instagram-grid">
-        <img src="https://viajandoconcabeza.com/wp-content/uploads/2024/10/IMG_2242_VSCO-1-768x1024.jpeg" alt="Viaje por Indonesia">
-        <img src="https://viajandoconcabeza.com/wp-content/uploads/2024/10/IMG_2512_VSCO-768x1024.jpeg" alt="Paisaje de viaje">
-        <img src="https://viajandoconcabeza.com/wp-content/uploads/2024/10/DSC05824_VSCO-edited-768x1024.jpeg" alt="Viaje por Suecia">
-        <img src="https://viajandoconcabeza.com/wp-content/uploads/2024/10/ABFCAC9F-3713-4344-91D8-BE285F6C4D97-768x1024.jpeg" alt="Viaje por París">
+        <img src="https://images.unsplash.com/photo-1523906834658-6e24ef2386f9?auto=format&fit=crop&w=700&q=85" alt="Calle de viaje">
+        <img src="https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=700&q=85" alt="Mar tropical">
+        <img src="https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?auto=format&fit=crop&w=700&q=85" alt="Montañas">
+        <img src="https://images.unsplash.com/photo-1499856871958-5b9627545d1a?auto=format&fit=crop&w=700&q=85" alt="Costa mediterránea">
+        <img src="https://images.unsplash.com/photo-1533105079780-92b9be482077?auto=format&fit=crop&w=700&q=85" alt="Templo griego">
       </div>
     </div>
   </section>
 
-  <section class="featured-guide shell">
-    <div class="guide-image"><img src="https://viajandoconcabeza.com/wp-content/uploads/2024/10/Captura-de-pantalla-2024-10-04-a-les-11.19.56.png" alt="Roma"><span class="guide-label">GUÍA DESTACADA</span></div>
-    <div class="guide-content"><p class="guide-country">ITALIA</p><h2>ROMA EN 3 DÍAS</h2><div class="stars">★★★★★ <span>5.0 (128 valoraciones)</span></div><p>Nuestra guía completa para descubrir Roma con el mejor itinerario, mapa y presupuesto.</p><div class="guide-features"><span>◷ 3 días</span><span>⌖ Mapa interactivo</span><span>▣ Itinerario día a día</span><span>€ Presupuesto real</span></div><a href="destinos/italia/roma/index.html" class="btn btn-primary">VER GUÍA COMPLETA →</a></div>
-    <aside class="budget-card"><h3>PRESUPUESTO REAL</h3><p>(2 personas / 3 días)</p><div class="budget-row"><span>Vuelos</span><strong>€210</strong></div><div class="budget-row"><span>Alojamiento</span><strong>€420</strong></div><div class="budget-row"><span>Comida</span><strong>€260</strong></div><div class="budget-row"><span>Entradas</span><strong>€180</strong></div><div class="budget-row"><span>Transporte</span><strong>€67</strong></div><div class="budget-row"><span>Otros</span><strong>€110</strong></div><div class="budget-total"><span>TOTAL</span><strong>€1.247</strong></div></aside>
+  <section class="rome-guide shell">
+    <div class="rome-image"><img src="https://images.unsplash.com/photo-1531572753322-ad063cecc140?auto=format&fit=crop&w=1200&q=90" alt="Roma"><span>GUÍA DESTACADA</span></div>
+    <div class="rome-copy"><p class="eyebrow">ITALIA</p><h2>ROMA EN 3 DÍAS</h2><p class="rating">★★★★★ <span>5.0 (128 valoraciones)</span></p><p>Nuestra guía completa para descubrir Roma con el mejor itinerario, mapa y presupuesto.</p><div class="rome-meta"><span>◷ 3 días</span><span>▣ Mapa interactivo</span><span>♙ Itinerario día a día</span><span>♧ Presupuesto real</span></div><a class="btn btn-coral" href="destinos/italia/roma/index.html">VER GUÍA COMPLETA →</a></div>
+    <aside class="budget"><h3>PRESUPUESTO REAL</h3><small>(2 personas / 3 días)</small><div><span>Vuelos</span><b>€210</b></div><div><span>Alojamiento</span><b>€420</b></div><div><span>Comida</span><b>€260</b></div><div><span>Entradas</span><b>€180</b></div><div><span>Transporte</span><b>€67</b></div><div><span>Otros</span><b>€110</b></div><div class="total"><span>TOTAL</span><b>€1.247</b></div></aside>
   </section>
 
-  <section class="why-section shell"><div class="section-heading-center"><h2>¿POR QUÉ VIAJAR CON NUESTRAS GUÍAS? ♡</h2></div><div class="why-grid"><div class="why-item"><div class="why-icon">◎</div><div><h3>Experiencias reales</h3><p>Todo lo que recomendamos lo hemos vivido nosotros.</p></div></div><div class="why-item"><div class="why-icon">€</div><div><h3>Ahorra tiempo y dinero</h3><p>Itinerarios optimizados y presupuestos reales.</p></div></div><div class="why-item"><div class="why-icon">♡</div><div><h3>Consejos honestos</h3><p>Te contamos lo bueno, lo malo y lo mejor.</p></div></div><div class="why-item"><div class="why-icon">↻</div><div><h3>Siempre actualizados</h3><p>Actualizamos nuestras guías después de cada viaje.</p></div></div></div></section>
+  <section class="why shell">
+    <h2>¿POR QUÉ VIAJAR CON NUESTRAS GUÍAS?</h2>
+    <div class="why-grid">
+      <article><i class="mint">◎</i><div><h3>Experiencias reales</h3><p>Todo lo que recomendamos lo hemos vivido nosotros.</p></div></article>
+      <article><i class="peach">€</i><div><h3>Ahorra tiempo y dinero</h3><p>Itinerarios optimizados y presupuestos reales.</p></div></article>
+      <article><i class="sand">◯</i><div><h3>Consejos honestos</h3><p>Te contamos lo bueno, lo malo y lo mejor.</p></div></article>
+      <article><i class="lilac">↻</i><div><h3>Siempre actualizados</h3><p>Actualizamos nuestras guías después de cada viaje.</p></div></article>
+    </div>
+  </section>
 
-  <section class="newsletter"><div class="newsletter-shade"></div><div class="newsletter-inner shell"><div class="newsletter-content"><p class="script">¿Te vienes?</p><h2>VIAJA CON NOSOTROS</h2><p>Recibe nuestras guías gratuitas, consejos y novedades para viajar con cabeza.</p></div><form class="newsletter-form"><input type="email" placeholder="Tu email aquí..." aria-label="Email"><button type="submit">SUSCRIBIRME</button></form></div></section>
+  <section class="newsletter">
+    <div class="newsletter-shade"></div>
+    <div class="shell newsletter-inner">
+      <div class="newsletter-photo"></div>
+      <div class="newsletter-copy"><p class="script">¿Te vienes?</p><p>Recibe nuestras guías gratuitas, consejos y descuentos exclusivos para viajar con cabeza.</p></div>
+      <form><input type="email" placeholder="Tu email aquí..." aria-label="Tu email"><button type="submit">SUSCRIBIRME</button></form>
+    </div>
+  </section>
 </main>
 
 <footer class="site-footer">
-  <div class="footer-grid shell">
+  <div class="shell footer-grid">
     <div class="footer-brand"><img src="https://viajandoconcabeza.com/wp-content/uploads/2024/12/VIAJANDO_CON_CABEZA_4-removebg-preview-300x300.png" alt="Viajando con Cabeza"><p>Somos Marta y Albert, una pareja apasionada por viajar y compartir experiencias reales para que tú también viajes con cabeza.</p></div>
     <div><h3>ENLACES</h3><a href="index.html">Inicio</a><a href="destinos/index.html">Destinos</a><a href="itinerarios/index.html">Itinerarios</a><a href="planifica/index.html">Planifica</a><a href="nosotros/index.html">Nosotros</a><a href="contacto/index.html">Contacto</a></div>
     <div><h3>DESTINOS POPULARES</h3><a href="destinos/italia/roma/index.html">Roma</a><a href="destinos/indonesia/index.html">Bali</a><a href="#">Suecia</a><a href="destinos/francia/index.html">París</a><a href="destinos/eeuu/index.html">Nueva York</a></div>
-    <div><h3>SÍGUENOS</h3><div class="footer-social"><a href="#">◎</a><a href="#">♪</a><a href="#">▶</a></div></div>
+    <div><h3>SÍGUENOS</h3><div class="footer-social"><a href="#">IG</a><a href="#">TT</a><a href="#">YT</a></div></div>
   </div>
-  <div class="copyright shell">© 2026 Viajando con Cabeza. Todos los derechos reservados. ♡</div>
+  <div class="shell copyright">© 2026 Viajando con Cabeza. Todos los derechos reservados. ♡</div>
 </footer>
 </body>
 </html>
