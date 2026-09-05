@@ -1,110 +1,16 @@
+(function(){const s=document.createElement('script');s.src='js/site-header.js';document.head.appendChild(s);})();
+
 window.HOME_CONTENT = {
   instagramProfile: "https://www.instagram.com/viajandoconcabeza/",
-
   latestTrips: [
     { title: "ROMA", country: "Italia", days: "3 días", people: "2 personas", price: "€1.247", image: "https://images.unsplash.com/photo-1552832230-c0197dd311b5?auto=format&fit=crop&w=700&q=86", url: "destinos/italia/roma/index.html" },
     { title: "BALI", country: "Indonesia", days: "12 días", people: "2 personas", price: "€2.950", image: "https://images.unsplash.com/photo-1533669955142-6a73332af4db?auto=format&fit=crop&w=700&q=86", url: "destinos/indonesia/index.html" },
     { title: "SUECIA", country: "Suecia", days: "14 días", people: "2 personas", price: "€2.120", image: "https://images.unsplash.com/photo-1509356843151-3e7d96241e11?auto=format&fit=crop&w=700&q=86", url: "destinos/index.html" },
     { title: "PARÍS", country: "Francia", days: "4 días", people: "2 personas", price: "€980", image: "https://images.unsplash.com/photo-1502602898657-3e91760cbb34?auto=format&fit=crop&w=700&q=86", url: "destinos/francia/index.html" }
   ],
-
-  featuredGuide: {
-    badge: "GUÍA DESTACADA",
-    country: "ITALIA",
-    title: "ROMA EN 3 DÍAS",
-    rating: "★★★★★",
-    ratingText: "5.0 (128 valoraciones)",
-    description: "Nuestra guía completa para descubrir Roma con el mejor itinerario, mapa y presupuesto.",
-    image: "https://images.unsplash.com/photo-1529260830199-42c24126f198?auto=format&fit=crop&w=1000&q=88",
-    url: "destinos/italia/roma/index.html",
-    meta: ["◷ 3 días", "⌖ Mapa interactivo", "♙ Itinerario día a día", "€ Presupuesto real"],
-    budgetSubtitle: "(2 personas / 3 días)",
-    budget: [["Vuelos", "€210"], ["Alojamiento", "€420"], ["Comida", "€260"], ["Entradas", "€180"], ["Transporte", "€67"], ["Otros", "€110"]],
-    total: "€1.247"
-  },
-
+  featuredGuide: { badge:"GUÍA DESTACADA", country:"ITALIA", title:"ROMA EN 3 DÍAS", rating:"★★★★★", ratingText:"5.0 (128 valoraciones)", description:"Nuestra guía completa para descubrir Roma con el mejor itinerario, mapa y presupuesto.", image:"https://images.unsplash.com/photo-1529260830199-42c24126f198?auto=format&fit=crop&w=1000&q=88", url:"destinos/italia/roma/index.html", meta:["◷ 3 días","⌖ Mapa interactivo","♙ Itinerario día a día","€ Presupuesto real"], budgetSubtitle:"(2 personas / 3 días)", budget:[["Vuelos","€210"],["Alojamiento","€420"],["Comida","€260"],["Entradas","€180"],["Transporte","€67"],["Otros","€110"]], total:"€1.247" },
   instagram: [
-    { image: "https://images.unsplash.com/photo-1470770841072-f978cf4d019e?auto=format&fit=crop&w=500&q=82", url: "https://www.instagram.com/viajandoconcabeza/" },
-    { image: "https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=500&q=82", url: "https://www.instagram.com/viajandoconcabeza/" },
-    { image: "https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?auto=format&fit=crop&w=500&q=82", url: "https://www.instagram.com/viajandoconcabeza/" },
-    { image: "https://images.unsplash.com/photo-1470770841072-f978cf4d019e?auto=format&fit=crop&w=500&q=82", url: "https://www.instagram.com/viajandoconcabeza/" },
-    { image: "https://images.unsplash.com/photo-1533104816931-20fa691ff6ca?auto=format&fit=crop&w=500&q=82", url: "https://www.instagram.com/viajandoconcabeza/" }
+    {image:"https://images.unsplash.com/photo-1470770841072-f978cf4d019e?auto=format&fit=crop&w=500&q=82",url:"https://www.instagram.com/viajandoconcabeza/"},{image:"https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=500&q=82",url:"https://www.instagram.com/viajandoconcabeza/"},{image:"https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?auto=format&fit=crop&w=500&q=82",url:"https://www.instagram.com/viajandoconcabeza/"},{image:"https://images.unsplash.com/photo-1470770841072-f978cf4d019e?auto=format&fit=crop&w=500&q=82",url:"https://www.instagram.com/viajandoconcabeza/"},{image:"https://images.unsplash.com/photo-1533104816931-20fa691ff6ca?auto=format&fit=crop&w=500&q=82",url:"https://www.instagram.com/viajandoconcabeza/"}
   ]
 };
-
-(function renderHomeContent() {
-  const content = window.HOME_CONTENT;
-  if (!content) return;
-
-  function makeInstagramLink(span) {
-    if (!span || span.tagName === "A") return;
-    const link = document.createElement("a");
-    link.className = span.className;
-    link.innerHTML = span.innerHTML;
-    link.setAttribute("aria-label", "Instagram");
-    link.href = content.instagramProfile;
-    link.target = "_blank";
-    link.rel = "noopener noreferrer";
-    span.replaceWith(link);
-  }
-
-  makeInstagramLink(document.querySelector('.social-top .social-icon[aria-label="Instagram"]'));
-  makeInstagramLink(document.querySelector('.footer-social .social-icon:first-child'));
-
-  const instagramButton = document.querySelector('.insta-copy a');
-  if (instagramButton) {
-    instagramButton.href = content.instagramProfile;
-    instagramButton.target = "_blank";
-    instagramButton.rel = "noopener noreferrer";
-  }
-
-  const latest = document.querySelector('.latest');
-  if (latest) {
-    latest.querySelectorAll('.trip-card').forEach((card) => card.remove());
-    const allTrips = latest.querySelector('.all-trips');
-    content.latestTrips.forEach((trip) => {
-      const card = document.createElement('a');
-      card.className = 'trip-card';
-      card.href = trip.url;
-      card.innerHTML = `
-        <img src="${trip.image}" alt="${trip.title}">
-        <svg class="heart"><use href="#i-heart"/></svg>
-        <div class="shade"></div>
-        <div class="trip-copy">
-          <h3>${trip.title}</h3>
-          <p>${trip.country}</p>
-          <div><span>${trip.days}</span><span>${trip.people}</span><b>${trip.price}</b></div>
-        </div>`;
-      latest.insertBefore(card, allTrips);
-    });
-  }
-
-  const instagramGrid = document.querySelector('.insta-grid');
-  if (instagramGrid) {
-    instagramGrid.innerHTML = content.instagram.map((item, index) => `
-      <a href="${item.url || content.instagramProfile}" target="_blank" rel="noopener noreferrer" aria-label="Ver publicación ${index + 1} en Instagram">
-        <img src="${item.image}" alt="Instagram Viajando con Cabeza ${index + 1}">
-      </a>`).join('');
-  }
-
-  const guide = content.featuredGuide;
-  const guideContainer = document.querySelector('.rome');
-  if (guideContainer && guide) {
-    guideContainer.innerHTML = `
-      <div class="rome-photo"><img src="${guide.image}" alt="${guide.title}"><span>${guide.badge}</span></div>
-      <div class="rome-copy">
-        <p>${guide.country}</p>
-        <h2>${guide.title}</h2>
-        <div class="rating">${guide.rating} <small>${guide.ratingText}</small></div>
-        <p class="rome-desc">${guide.description}</p>
-        <div class="rome-meta">${guide.meta.map((item) => `<span>${item}</span>`).join('')}</div>
-        <a href="${guide.url}">VER GUÍA COMPLETA →</a>
-      </div>
-      <aside class="budget">
-        <b>PRESUPUESTO REAL</b>
-        <small>${guide.budgetSubtitle}</small>
-        ${guide.budget.map(([label, value]) => `<div><span>${label}</span><strong>${value}</strong></div>`).join('')}
-        <div class="total"><span>TOTAL</span><strong>${guide.total}</strong></div>
-      </aside>`;
-  }
-})();
+(function(){const c=window.HOME_CONTENT;if(!c)return;const ib=document.querySelector('.insta-copy a');if(ib){ib.href=c.instagramProfile;ib.target='_blank';ib.rel='noopener noreferrer'}const latest=document.querySelector('.latest');if(latest){latest.querySelectorAll('.trip-card').forEach(x=>x.remove());const all=latest.querySelector('.all-trips');c.latestTrips.forEach(t=>{const a=document.createElement('a');a.className='trip-card';a.href=t.url;a.innerHTML=`<img src="${t.image}" alt="${t.title}"><svg class="heart"><use href="#i-heart"/></svg><div class="shade"></div><div class="trip-copy"><h3>${t.title}</h3><p>${t.country}</p><div><span>${t.days}</span><span>${t.people}</span><b>${t.price}</b></div></div>`;latest.insertBefore(a,all)})}const ig=document.querySelector('.insta-grid');if(ig)ig.innerHTML=c.instagram.map((x,i)=>`<a href="${x.url||c.instagramProfile}" target="_blank" rel="noopener noreferrer"><img src="${x.image}" alt="Instagram Viajando con Cabeza ${i+1}"></a>`).join('');const g=c.featuredGuide,r=document.querySelector('.rome');if(r&&g)r.innerHTML=`<div class="rome-photo"><img src="${g.image}" alt="${g.title}"><span>${g.badge}</span></div><div class="rome-copy"><p>${g.country}</p><h2>${g.title}</h2><div class="rating">${g.rating} <small>${g.ratingText}</small></div><p class="rome-desc">${g.description}</p><div class="rome-meta">${g.meta.map(x=>`<span>${x}</span>`).join('')}</div><a href="${g.url}">VER GUÍA COMPLETA →</a></div><aside class="budget"><b>PRESUPUESTO REAL</b><small>${g.budgetSubtitle}</small>${g.budget.map(x=>`<div><span>${x[0]}</span><strong>${x[1]}</strong></div>`).join('')}<div class="total"><span>TOTAL</span><strong>${g.total}</strong></div></aside>`})();
