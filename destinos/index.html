@@ -5,158 +5,41 @@
   <meta name="viewport" content="width=device-width,initial-scale=1">
   <title>Destinos | Viajando con Cabeza</title>
   <meta name="description" content="Todos los destinos que hemos visitado, organizados por continente.">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@500;600;700&family=DM+Sans:wght@400;500;600;700;800&family=Oswald:wght@500;600;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="../css/paginas.css">
-  <link rel="stylesheet" href="../css/destinos.css">
+  <link rel="stylesheet" href="../css/paginas.css"><link rel="stylesheet" href="../css/destinos.css">
 </head>
-<body>
-  <header class="page-header"></header>
-
-  <main>
-    <section class="destinos-cover">
-      <div class="destinos-cover-card">
-        <div class="destinos-breadcrumb">Inicio <span>›</span> Destinos</div>
-        <h1>Destinos</h1>
-        <p class="destinos-script">Todos los lugares que hemos visitado ♡</p>
-        <p class="destinos-intro">Explora todos los países que hemos recorrido.<br>Consejos reales, experiencias auténticas y mucha inspiración<br>para tu próximo viaje.</p>
-      </div>
-    </section>
-
-    <nav class="continent-tabs" aria-label="Filtrar destinos por continente">
-      <button class="continent-tab active" data-filter="todos">◉ <span>TODOS</span></button>
-      <button class="continent-tab" data-filter="europa">♙ <span>EUROPA</span></button>
-      <button class="continent-tab" data-filter="asia">⌁ <span>ASIA</span></button>
-      <button class="continent-tab" data-filter="america">♡ <span>AMÉRICA</span></button>
-      <button class="continent-tab" data-filter="africa">♡ <span>ÁFRICA</span></button>
-      <button class="continent-tab" data-filter="oceania">♨ <span>OCEANÍA</span></button>
-    </nav>
-
-    <section class="destinos-content">
-      <div class="destinos-section-heading">
-        <div class="globe-icon">◎</div>
-        <div>
-          <h2>TODOS LOS DESTINOS</h2>
-          <p>20 países · 5 continentes · Miles de recuerdos</p>
-        </div>
-      </div>
-
-      <div class="country-grid">
-        <a class="country-card" data-continent="europa" href="suecia/index.html">
-          <img src="https://flagcdn.com/w640/se.png" alt="Bandera de Suecia">
-          <div class="country-copy"><h3>Suecia</h3><p>⌖ Europa</p><span>→</span></div>
-        </a>
-        <a class="country-card" data-continent="europa" href="belgica/index.html">
-          <img src="https://flagcdn.com/w640/be.png" alt="Bandera de Bélgica">
-          <div class="country-copy"><h3>Bélgica</h3><p>⌖ Europa</p><span>→</span></div>
-        </a>
-        <a class="country-card" data-continent="america" href="mexico/index.html">
-          <img src="https://flagcdn.com/w640/mx.png" alt="Bandera de México">
-          <div class="country-copy"><h3>México</h3><p>⌖ América del Norte</p><span>→</span></div>
-        </a>
-        <a class="country-card" data-continent="europa" href="espana/index.html">
-          <img src="https://flagcdn.com/w640/es.png" alt="Bandera de España">
-          <div class="country-copy"><h3>España</h3><p>⌖ Europa</p><span>→</span></div>
-        </a>
-
-        <a class="country-card" data-continent="europa" href="suiza/index.html">
-          <img src="https://flagcdn.com/w640/ch.png" alt="Bandera de Suiza">
-          <div class="country-copy"><h3>Suiza</h3><p>⌖ Europa</p><span>→</span></div>
-        </a>
-        <a class="country-card" data-continent="europa" href="austria/index.html">
-          <img src="https://flagcdn.com/w640/at.png" alt="Bandera de Austria">
-          <div class="country-copy"><h3>Austria</h3><p>⌖ Europa</p><span>→</span></div>
-        </a>
-        <a class="country-card" data-continent="europa" href="alemania/index.html">
-          <img src="https://flagcdn.com/w640/de.png" alt="Bandera de Alemania">
-          <div class="country-copy"><h3>Alemania</h3><p>⌖ Europa</p><span>→</span></div>
-        </a>
-        <a class="country-card" data-continent="oceania" href="australia/index.html">
-          <img src="https://flagcdn.com/w640/au.png" alt="Bandera de Australia">
-          <div class="country-copy"><h3>Australia</h3><p>⌖ Oceanía</p><span>→</span></div>
-        </a>
-
-        <a class="country-card" data-continent="europa" href="italia/index.html">
-          <img src="https://flagcdn.com/w640/it.png" alt="Bandera de Italia">
-          <div class="country-copy"><h3>Italia</h3><p>⌖ Europa</p><span>→</span></div>
-        </a>
-        <a class="country-card" data-continent="asia europa" href="turquia/index.html">
-          <img src="https://flagcdn.com/w640/tr.png" alt="Bandera de Turquía">
-          <div class="country-copy"><h3>Turquía</h3><p>⌖ Europa / Asia</p><span>→</span></div>
-        </a>
-        <a class="country-card" data-continent="europa" href="estonia/index.html">
-          <img src="https://flagcdn.com/w640/ee.png" alt="Bandera de Estonia">
-          <div class="country-copy"><h3>Estonia</h3><p>⌖ Europa</p><span>→</span></div>
-        </a>
-        <a class="country-card" data-continent="europa" href="letonia/index.html">
-          <img src="https://flagcdn.com/w640/lv.png" alt="Bandera de Letonia">
-          <div class="country-copy"><h3>Letonia</h3><p>⌖ Europa</p><span>→</span></div>
-        </a>
-
-        <a class="country-card" data-continent="europa" href="lituania/index.html">
-          <img src="https://flagcdn.com/w640/lt.png" alt="Bandera de Lituania">
-          <div class="country-copy"><h3>Lituania</h3><p>⌖ Europa</p><span>→</span></div>
-        </a>
-        <a class="country-card" data-continent="asia" href="emiratos-arabes-unidos/index.html">
-          <img src="https://flagcdn.com/w640/ae.png" alt="Bandera de Emiratos Árabes Unidos">
-          <div class="country-copy"><h3>UAE</h3><p>⌖ Asia</p><span>→</span></div>
-        </a>
-        <a class="country-card" data-continent="asia" href="malasia/index.html">
-          <img src="https://flagcdn.com/w640/my.png" alt="Bandera de Malasia">
-          <div class="country-copy"><h3>Malasia</h3><p>⌖ Asia</p><span>→</span></div>
-        </a>
-        <a class="country-card" data-continent="asia" href="indonesia/index.html">
-          <img src="https://flagcdn.com/w640/id.png" alt="Bandera de Indonesia">
-          <div class="country-copy"><h3>Indonesia</h3><p>⌖ Asia</p><span>→</span></div>
-        </a>
-
-        <a class="country-card" data-continent="asia" href="singapur/index.html">
-          <img src="https://flagcdn.com/w640/sg.png" alt="Bandera de Singapur">
-          <div class="country-copy"><h3>Singapur</h3><p>⌖ Asia</p><span>→</span></div>
-        </a>
-        <a class="country-card" data-continent="europa" href="francia/index.html">
-          <img src="https://flagcdn.com/w640/fr.png" alt="Bandera de Francia">
-          <div class="country-copy"><h3>Francia</h3><p>⌖ Europa</p><span>→</span></div>
-        </a>
-        <a class="country-card" data-continent="america" href="eeuu/index.html">
-          <img src="https://flagcdn.com/w640/us.png" alt="Bandera de Estados Unidos">
-          <div class="country-copy"><h3>Estados Unidos</h3><p>⌖ América del Norte</p><span>→</span></div>
-        </a>
-        <a class="country-card" data-continent="europa" href="hungria/index.html">
-          <img src="https://flagcdn.com/w640/hu.png" alt="Bandera de Hungría">
-          <div class="country-copy"><h3>Hungría</h3><p>⌖ Europa</p><span>→</span></div>
-        </a>
-      </div>
-
-      <div class="next-trip-banner">
-        <div class="next-trip-icon">◌</div>
-        <div class="next-trip-copy">
-          <strong>¿A dónde vamos ahora?</strong>
-          <p>Siempre con la maleta lista para la próxima aventura.</p>
-          <span>Marta &amp; Albert ♡</span>
-        </div>
-        <a href="#">VER PRÓXIMOS VIAJES　→</a>
-      </div>
-    </section>
-  </main>
-
-  <footer class="page-footer"><div class="footer-copy">© 2026 Viajando con Cabeza · Todos los derechos reservados</div></footer>
-  <script src="../js/site-header.js"></script>
-  <script>
-    const tabs = document.querySelectorAll('.continent-tab');
-    const cards = document.querySelectorAll('.country-card');
-    const heading = document.querySelector('.destinos-section-heading h2');
-    tabs.forEach(tab => tab.addEventListener('click', () => {
-      tabs.forEach(t => t.classList.remove('active'));
-      tab.classList.add('active');
-      const filter = tab.dataset.filter;
-      cards.forEach(card => {
-        const continents = card.dataset.continent.split(' ');
-        card.style.display = filter === 'todos' || continents.includes(filter) ? 'block' : 'none';
-      });
-      heading.textContent = filter === 'todos' ? 'TODOS LOS DESTINOS' : tab.textContent.trim().replace(/^[^A-ZÁÉÍÓÚÜÑ]+/,'');
-    }));
-  </script>
-</body>
-</html>
+<body><header class="page-header"></header><main>
+<section class="destinos-cover"><div class="destinos-cover-card"><div class="destinos-breadcrumb">Inicio <span>›</span> Destinos</div><h1>Destinos</h1><p class="destinos-script">Todos los lugares que hemos visitado ♡</p><p class="destinos-intro">Explora todos los países que hemos recorrido.<br>Consejos reales, experiencias auténticas y mucha inspiración<br>para tu próximo viaje.</p></div></section>
+<nav class="continent-tabs" aria-label="Filtrar destinos por continente"><button class="continent-tab active" data-filter="todos">◉ <span>TODOS</span></button><button class="continent-tab" data-filter="europa">♙ <span>EUROPA</span></button><button class="continent-tab" data-filter="asia">⌁ <span>ASIA</span></button><button class="continent-tab" data-filter="america">♡ <span>AMÉRICA</span></button><button class="continent-tab" data-filter="africa">♡ <span>ÁFRICA</span></button><button class="continent-tab" data-filter="oceania">♨ <span>OCEANÍA</span></button></nav>
+<section class="destinos-content"><div class="destinos-section-heading"><div class="globe-icon">◎</div><div><h2>TODOS LOS DESTINOS</h2><p>20 países · 5 continentes · Miles de recuerdos</p></div></div>
+<div class="country-grid">
+<a class="country-card" data-continent="europa" href="alemania/index.html"><img src="https://flagcdn.com/w640/de.png" alt="Bandera de Alemania"><div class="country-copy"><h3>Alemania</h3><p>⌖ Europa</p><span>→</span></div></a>
+<a class="country-card" data-continent="australia oceania" href="australia/index.html"><img src="https://flagcdn.com/w640/au.png" alt="Bandera de Australia"><div class="country-copy"><h3>Australia</h3><p>⌖ Oceanía</p><span>→</span></div></a>
+<a class="country-card" data-continent="europa" href="austria/index.html"><img src="https://flagcdn.com/w640/at.png" alt="Bandera de Austria"><div class="country-copy"><h3>Austria</h3><p>⌖ Europa</p><span>→</span></div></a>
+<a class="country-card" data-continent="europa" href="belgica/index.html"><img src="https://flagcdn.com/w640/be.png" alt="Bandera de Bélgica"><div class="country-copy"><h3>Bélgica</h3><p>⌖ Europa</p><span>→</span></div></a>
+<a class="country-card" data-continent="asia" href="emiratos-arabes-unidos/index.html"><img src="https://flagcdn.com/w640/ae.png" alt="Bandera de Emiratos Árabes Unidos"><div class="country-copy"><h3>Emiratos Árabes Unidos</h3><p>⌖ Asia</p><span>→</span></div></a>
+<a class="country-card" data-continent="europa" href="espana/index.html"><img src="https://flagcdn.com/w640/es.png" alt="Bandera de España"><div class="country-copy"><h3>España</h3><p>⌖ Europa</p><span>→</span></div></a>
+<a class="country-card" data-continent="america" href="eeuu/index.html"><img src="https://flagcdn.com/w640/us.png" alt="Bandera de Estados Unidos"><div class="country-copy"><h3>Estados Unidos</h3><p>⌖ América del Norte</p><span>→</span></div></a>
+<a class="country-card" data-continent="europa" href="estonia/index.html"><img src="https://flagcdn.com/w640/ee.png" alt="Bandera de Estonia"><div class="country-copy"><h3>Estonia</h3><p>⌖ Europa</p><span>→</span></div></a>
+<a class="country-card" data-continent="europa" href="francia/index.html"><img src="https://flagcdn.com/w640/fr.png" alt="Bandera de Francia"><div class="country-copy"><h3>Francia</h3><p>⌖ Europa</p><span>→</span></div></a>
+<a class="country-card" data-continent="europa" href="hungria/index.html"><img src="https://flagcdn.com/w640/hu.png" alt="Bandera de Hungría"><div class="country-copy"><h3>Hungría</h3><p>⌖ Europa</p><span>→</span></div></a>
+<a class="country-card" data-continent="asia" href="indonesia/index.html"><img src="https://flagcdn.com/w640/id.png" alt="Bandera de Indonesia"><div class="country-copy"><h3>Indonesia</h3><p>⌖ Asia</p><span>→</span></div></a>
+<a class="country-card" data-continent="europa" href="italia/index.html"><img src="https://flagcdn.com/w640/it.png" alt="Bandera de Italia"><div class="country-copy"><h3>Italia</h3><p>⌖ Europa</p><span>→</span></div></a>
+<a class="country-card" data-continent="europa" href="letonia/index.html"><img src="https://flagcdn.com/w640/lv.png" alt="Bandera de Letonia"><div class="country-copy"><h3>Letonia</h3><p>⌖ Europa</p><span>→</span></div></a>
+<a class="country-card" data-continent="europa" href="lituania/index.html"><img src="https://flagcdn.com/w640/lt.png" alt="Bandera de Lituania"><div class="country-copy"><h3>Lituania</h3><p>⌖ Europa</p><span>→</span></div></a>
+<a class="country-card" data-continent="asia" href="malasia/index.html"><img src="https://flagcdn.com/w640/my.png" alt="Bandera de Malasia"><div class="country-copy"><h3>Malasia</h3><p>⌖ Asia</p><span>→</span></div></a>
+<a class="country-card" data-continent="america" href="mexico/index.html"><img src="https://flagcdn.com/w640/mx.png" alt="Bandera de México"><div class="country-copy"><h3>México</h3><p>⌖ América del Norte</p><span>→</span></div></a>
+<a class="country-card" data-continent="asia" href="singapur/index.html"><img src="https://flagcdn.com/w640/sg.png" alt="Bandera de Singapur"><div class="country-copy"><h3>Singapur</h3><p>⌖ Asia</p><span>→</span></div></a>
+<a class="country-card" data-continent="europa" href="suecia/index.html"><img src="https://flagcdn.com/w640/se.png" alt="Bandera de Suecia"><div class="country-copy"><h3>Suecia</h3><p>⌖ Europa</p><span>→</span></div></a>
+<a class="country-card" data-continent="europa" href="suiza/index.html"><img src="https://flagcdn.com/w640/ch.png" alt="Bandera de Suiza"><div class="country-copy"><h3>Suiza</h3><p>⌖ Europa</p><span>→</span></div></a>
+<a class="country-card" data-continent="asia europa" href="turquia/index.html"><img src="https://flagcdn.com/w640/tr.png" alt="Bandera de Turquía"><div class="country-copy"><h3>Turquía</h3><p>⌖ Europa / Asia</p><span>→</span></div></a>
+</div>
+<div class="next-trip-banner"><div class="next-trip-icon">◌</div><div class="next-trip-copy"><strong>¿A dónde vamos ahora?</strong><p>Siempre con la maleta lista para la próxima aventura.</p><span>Marta &amp; Albert ♡</span></div><a href="#">VER PRÓXIMOS VIAJES　→</a></div></section></main>
+<footer class="page-footer"><div class="footer-copy">© 2026 Viajando con Cabeza · Todos los derechos reservados</div></footer><script src="../js/site-header.js"></script>
+<script>
+const tabs=document.querySelectorAll('.continent-tab'),cards=[...document.querySelectorAll('.country-card')],grid=document.querySelector('.country-grid'),heading=document.querySelector('.destinos-section-heading h2');
+const sortCards=()=>{cards.sort((a,b)=>a.querySelector('h3').textContent.localeCompare(b.querySelector('h3').textContent,'es',{sensitivity:'base'})).forEach(card=>grid.appendChild(card));};
+sortCards();
+tabs.forEach(tab=>tab.addEventListener('click',()=>{tabs.forEach(t=>t.classList.remove('active'));tab.classList.add('active');const filter=tab.dataset.filter;sortCards();cards.forEach(card=>{const continents=card.dataset.continent.split(' ');card.style.display=filter==='todos'||continents.includes(filter)?'block':'none';});heading.textContent=filter==='todos'?'TODOS LOS DESTINOS':tab.textContent.trim().replace(/^[^A-ZÁÉÍÓÚÜÑ]+/,'');}));
+</script></body></html>
