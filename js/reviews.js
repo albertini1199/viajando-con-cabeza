@@ -74,14 +74,59 @@
     summary.querySelector('[data-bars]').innerHTML=config.metrics.map(([key,label])=>{const avg=average(reviews.map(r=>r.scores&&r.scores[key]));return `<div class="vc-rating-row"><span>${label}</span><span class="vc-rating-bar"><i style="width:${pct(avg)}"></i></span><b>${avg==null?'—':avg.toFixed(1)}</b></div>`}).join('');
   }
 
+  function reviewCard(r){
+    return `<article class="vc-review-card"><div class="vc-review-card-top"><div><strong>${esc(r.name)}</strong><span>${esc(r.trip_type||'Viajero/a')} · ${fmtDate(r.created_at)}</span></div><div class="vc-card-score"><b>${Number(r.rating).toFixed(1)}</b><span>${descriptor(r.rating)}</span></div></div>${r.comment?`<p>${esc(r.comment)}</p>`:''}</article>`;
+  }
+
   function renderList(root,reviews){
     const list=root.querySelector('[data-list]');
     if(!reviews.length){list.innerHTML='<div class="vc-reviews-empty"><strong>Aún no hay comentarios publicados</strong><span>Cuando aprobemos las primeras valoraciones aparecerán aquí.</span></div>';return}
-    list.innerHTML=`<div class="vc-reviews-list-head"><h3>Comentarios recientes</h3><span>${reviews.length} publicados</span></div><div class="vc-review-cards">${reviews.map(r=>`<article class="vc-review-card"><div class="vc-review-card-top"><div><strong>${esc(r.name)}</strong><span>${esc(r.trip_type||'Viajero/a')} · ${fmtDate(r.created_at)}</span></div><div class="vc-card-score"><b>${Number(r.rating).toFixed(1)}</b><span>${descriptor(r.rating)}</span></div></div>${r.comment?`<p>${esc(r.comment)}</p>`:''}</article>`).join('')}</div>`;
+    list.innerHTML=`<div class="vc-reviews-list-head"><h3>Comentarios recientes</h3><span>${reviews.length} publicados</span></div><div class="vc-review-cards">${reviews.map(reviewCard).join('')}</div>`;
+  }
+
+  function quickBadge(pageId,reviews){
+    const host=[...document.querySelectorAll('[data-review-quick]')].find(el=>el.dataset.reviewQuick===pageId);
+    if(!host)return;
+    if(!reviews.length){host.innerHTML='<button type="button" class="vc-quick-badge vc-quick-empty" data-open-reviews><span>Valoraciones</span><strong>Sin valoraciones</strong><small>Sé el primero en opinar</small><i>›</i></button>';return}
+    const avg=average(reviews.map(r=>r.rating));
+    host.innerHTML=`<button type="button" class="vc-quick-badge" data-open-reviews><span class="vc-quick-copy"><strong>${descriptor(avg)}</strong><small>${reviews.length} valoración${reviews.length===1?'':'es'}</small></span><b>${avg.toFixed(1)}</b><i>›</i></button>`;
+  }
+
+  function modalMarkup(pageId,title,type,reviews){
+    const config=TYPES[type];
+    const avg=average(reviews.map(r=>r.rating));
+    const trips=[...new Set(reviews.map(r=>r.trip_type).filter(Boolean))].sort();
+    const scoreHtml=reviews.length?`<div class="vc-modal-score"><b>${avg.toFixed(1)}</b><div><strong>${descriptor(avg)}</strong><span>${reviews.length} valoración${reviews.length===1?'':'es'}</span></div></div>`:`<div class="vc-modal-score vc-modal-score-empty"><div><strong>Sin valoraciones todavía</strong><span>Sé la primera persona en compartir su experiencia.</span></div></div>`;
+    const bars=config.metrics.map(([key,label])=>{const m=average(reviews.map(r=>r.scores&&r.scores[key]));return `<div class="vc-modal-metric"><div><span>${label}</span><b>${m==null?'—':m.toFixed(1)}</b></div><i><em style="width:${pct(m)}"></em></i></div>`}).join('');
+    return `<div class="vc-review-modal" data-review-modal="${esc(pageId)}" aria-hidden="true"><div class="vc-review-modal-backdrop" data-close-reviews></div><section class="vc-review-modal-panel" role="dialog" aria-modal="true" aria-label="Valoraciones de ${esc(title)}"><header><div><span class="vc-reviews-kicker">COMUNIDAD VIAJERA</span><h2>Valoraciones sobre ${esc(title)}</h2></div><button type="button" class="vc-modal-close" data-close-reviews aria-label="Cerrar">×</button></header><div class="vc-modal-summary">${scoreHtml}<div class="vc-modal-trust">✓ Opiniones revisadas antes de publicarse</div></div><div class="vc-modal-categories"><h3>Categorías</h3><div class="vc-modal-metrics">${bars}</div></div><div class="vc-modal-filters"><h3>Filtrar comentarios</h3><div class="vc-filter-grid"><label>Tipo de viajero<select data-filter-trip><option value="">Todos</option>${trips.map(t=>`<option value="${esc(t)}">${esc(t)}</option>`).join('')}</select></label><label>Puntuación<select data-filter-score><option value="">Todas</option><option value="9">9–10</option><option value="8">8–8,9</option><option value="6">6–7,9</option><option value="0">0–5,9</option></select></label><label>Orden<select data-filter-sort><option value="recent">Más recientes</option><option value="high">Mejor puntuación</option><option value="low">Menor puntuación</option></select></label><label class="vc-filter-search">Buscar<input type="search" data-filter-search placeholder="Ej. transporte, Vaticano, comida..."></label></div></div><div class="vc-modal-comments"><div class="vc-modal-comments-head"><h3>Comentarios</h3><span data-filter-count>${reviews.length}</span></div><div data-filter-results></div></div></section></div>`;
+  }
+
+  function bindModal(pageId,reviews){
+    const modal=document.querySelector(`[data-review-modal="${pageId}"]`);
+    if(!modal)return;
+    const results=modal.querySelector('[data-filter-results]');
+    const count=modal.querySelector('[data-filter-count]');
+    const trip=modal.querySelector('[data-filter-trip]');
+    const score=modal.querySelector('[data-filter-score]');
+    const sort=modal.querySelector('[data-filter-sort]');
+    const search=modal.querySelector('[data-filter-search]');
+    const render=()=>{let items=[...reviews];if(trip.value)items=items.filter(r=>r.trip_type===trip.value);if(score.value==='9')items=items.filter(r=>Number(r.rating)>=9);if(score.value==='8')items=items.filter(r=>Number(r.rating)>=8&&Number(r.rating)<9);if(score.value==='6')items=items.filter(r=>Number(r.rating)>=6&&Number(r.rating)<8);if(score.value==='0')items=items.filter(r=>Number(r.rating)<6);const q=search.value.trim().toLowerCase();if(q)items=items.filter(r=>`${r.name||''} ${r.trip_type||''} ${r.comment||''}`.toLowerCase().includes(q));if(sort.value==='high')items.sort((a,b)=>Number(b.rating)-Number(a.rating));else if(sort.value==='low')items.sort((a,b)=>Number(a.rating)-Number(b.rating));else items.sort((a,b)=>new Date(b.created_at)-new Date(a.created_at));count.textContent=items.length;results.innerHTML=items.length?items.map(reviewCard).join(''):'<div class="vc-reviews-empty"><strong>No hay comentarios con estos filtros</strong><span>Prueba con otra combinación.</span></div>'};
+    [trip,score,sort].forEach(el=>el.addEventListener('change',render));search.addEventListener('input',render);render();
+    const open=()=>{modal.classList.add('is-open');modal.setAttribute('aria-hidden','false');document.body.classList.add('vc-modal-open')};
+    const close=()=>{modal.classList.remove('is-open');modal.setAttribute('aria-hidden','true');document.body.classList.remove('vc-modal-open')};
+    document.querySelectorAll('[data-open-reviews]').forEach(btn=>{if(btn.closest('[data-review-quick]')?.dataset.reviewQuick===pageId)btn.addEventListener('click',open)});
+    modal.querySelectorAll('[data-close-reviews]').forEach(btn=>btn.addEventListener('click',close));
+    document.addEventListener('keydown',e=>{if(e.key==='Escape'&&modal.classList.contains('is-open'))close()});
+  }
+
+  function buildModal(pageId,title,type,reviews){
+    const old=document.querySelector(`[data-review-modal="${pageId}"]`);if(old)old.remove();
+    document.body.insertAdjacentHTML('beforeend',modalMarkup(pageId,title,type,reviews));
+    bindModal(pageId,reviews);
   }
 
   async function load(root,pageId,pageType,title){
-    try{const qs=new URLSearchParams({page_id:pageId,page_type:pageType});const res=await fetch(`${API}?${qs}`,{headers:HEADERS});if(!res.ok)throw new Error();const data=await res.json();const reviews=data.reviews||[];renderSummary(root,reviews,title,pageType);renderList(root,reviews)}catch(e){renderSummary(root,[],title,pageType);renderList(root,[]);const msg=root.querySelector('[data-message]');msg.textContent='No hemos podido cargar las valoraciones ahora mismo.';msg.classList.add('is-error')}
+    try{const qs=new URLSearchParams({page_id:pageId,page_type:pageType});const res=await fetch(`${API}?${qs}`,{headers:HEADERS});if(!res.ok)throw new Error();const data=await res.json();const reviews=data.reviews||[];renderSummary(root,reviews,title,pageType);renderList(root,reviews);quickBadge(pageId,reviews);buildModal(pageId,title,pageType,reviews)}catch(e){renderSummary(root,[],title,pageType);renderList(root,[]);quickBadge(pageId,[]);buildModal(pageId,title,pageType,[]);const msg=root.querySelector('[data-message]');msg.textContent='No hemos podido cargar las valoraciones ahora mismo.';msg.classList.add('is-error')}
   }
 
   function bind(root,pageId,pageType){
